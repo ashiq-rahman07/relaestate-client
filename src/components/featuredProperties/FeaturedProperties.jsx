@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { request } from '../../util/fetchAPI';
 import { FaBed, FaSquareFull } from 'react-icons/fa'
 import img from '../../assets/estate3.jpg'
+import person from '../../assets/person.jpg'
 import classes from './featuredProperties.module.css'
 const FeaturedProperties = () => {
   const [featuredProperties, setFeaturedProperties] = useState([]);
