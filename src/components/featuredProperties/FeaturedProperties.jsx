@@ -32,7 +32,7 @@ const FeaturedProperties = () => {
           {featuredProperties?.map((property)=>(
             <div key={property._id} className={classes.featuredProperty}>
                <Link to={`/propertyDetails/${property._id}`} className={classes.imgContainer}>
-                <img src={img} alt="" />
+                <img src={property.img? `http://localhost:5000/images/${property.img}`: img} alt="" />
                </Link>
                <div className={classes.details}>
                 <div className={classes.priceOwner}>
@@ -43,7 +43,7 @@ const FeaturedProperties = () => {
                   <span>{property?.bed} <FaBed className={classes.icon}/></span>
                   <span>{property?.sqmeters} square meters <FaSquareFull className={classes.icon} /></span>
                 </div>
-                <div className={classes.desc}></div>
+                <div className={classes.desc}>{property?.desc}</div>
                </div>
             </div>
           ))}

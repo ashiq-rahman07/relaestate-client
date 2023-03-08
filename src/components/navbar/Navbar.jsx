@@ -37,8 +37,11 @@ const Navbar = () => {
       filename = crypto.randomUUID()+ photo.name;
       formData.append('filename', filename)
       formData.append('image', photo);
+      const options = {
+        "Authorization": `Bearer ${token}`,
+      }
 
-      await request(`/upload/image`, 'POST', {},FormData, true);
+      await request('/upload/image', 'POST',options,formData, true);
     }else {
       return;
     }
@@ -48,8 +51,9 @@ const Navbar = () => {
         'Content-Type': 'application/json'
       }
 
-      const data = await request(`/property`, 'POST', options, {...state,  img: filename})
-      console.log(data)              
+     await request(`/property`, 'POST', options, {...state,  img: filename})
+      
+      setShowForm(false)               
     } catch (error) {
       console.error(error)
     }
@@ -97,7 +101,7 @@ const Navbar = () => {
                   <input type="text" placeholder='Continent....' name='continent' onChange={handleState} />
 
 
-                  <input type="number" placeholder='Price....' name='Price' onChange={handleState} />
+                  <input type="number" placeholder='Price....' name='price' onChange={handleState} />
                   <input type="number" placeholder='Sq. meters.' name='sqmeters' onChange={handleState} />
                   <input type="number" placeholder='Beds' step={1} min={2} name='beds' onChange={handleState} />
                   <div style={{dispaly:'flex', alignItems:'center', gap: '12px', width:'50px'}}>
