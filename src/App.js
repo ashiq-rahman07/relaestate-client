@@ -42,8 +42,8 @@ function App() {
             <Footer/>
           </>
         } />
-        <Route path='/signup' element={<Signin/>} />
-        <Route path='/signin' element={<Signup/>} />
+        <Route path='/signup' element={<Signup/>} />
+        <Route path='/signin' element={<Signin/>} />
       </Routes>
     </div>
   );
